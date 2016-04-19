@@ -15,7 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "exit")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: .exit)
     }
     
     func exit() {
@@ -27,4 +27,8 @@ class RegisterViewController: UIViewController {
         
     }
 
+}
+
+private extension Selector {
+    static let exit = #selector(RegisterViewController.exit)
 }
