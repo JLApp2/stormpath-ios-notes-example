@@ -13,25 +13,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
         // Code when someone presses the login button
         
         Stormpath.sharedSession.login(emailTextField.text!, password: passwordTextField.text!, completionHandler: openNotes)
     }
     
-    @IBAction func loginWithFacebook(sender: AnyObject) {
+    @IBAction func loginWithFacebook(_ sender: AnyObject) {
         // Code when someone presses the login with Facebook button
         
-        Stormpath.sharedSession.login(socialProvider: .Facebook, completionHandler: openNotes)
+        Stormpath.sharedSession.login(socialProvider: .facebook, completionHandler: openNotes)
     }
     
-    @IBAction func loginWithGoogle(sender: AnyObject) {
+    @IBAction func loginWithGoogle(_ sender: AnyObject) {
         // Code when someone presses the login with Google button
         
-        Stormpath.sharedSession.login(socialProvider: .Google, completionHandler: openNotes)
+        Stormpath.sharedSession.login(socialProvider: .google, completionHandler: openNotes)
     }
 
-    @IBAction func resetPassword(sender: AnyObject) {
+    @IBAction func resetPassword(_ sender: AnyObject) {
         // Code when someone presses the reset password button
         
         Stormpath.sharedSession.resetPassword(emailTextField.text!) { (success, error) -> Void in
@@ -43,12 +43,12 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func openNotes(success: Bool, error: NSError?) {
+    func openNotes(_ success: Bool, error: NSError?) {
         if let error = error {
             showAlert(withTitle: "Error", message: error.localizedDescription)
         }
         else {
-            performSegueWithIdentifier("login", sender: self)
+            performSegue(withIdentifier: "login", sender: self)
         }
     }
 }
@@ -56,8 +56,8 @@ class LoginViewController: UIViewController {
 // Helper extension to display alerts easily.
 extension UIViewController {
     func showAlert(withTitle title: String, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

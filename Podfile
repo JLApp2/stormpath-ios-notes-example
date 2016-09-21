@@ -4,6 +4,6 @@
 use_frameworks!
 
 target 'Stormpath Notes' do
-	pod 'Stormpath', '~> 1.2'
+	pod 'Stormpath', '~> 2.0'
 end
 

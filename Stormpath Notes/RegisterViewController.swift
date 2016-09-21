@@ -16,14 +16,14 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: .exit)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: .exit)
     }
     
     func exit() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func register(sender: AnyObject) {
+    @IBAction func register(_ sender: AnyObject) {
         // Code for registering the user
         
         // Create the registration model
