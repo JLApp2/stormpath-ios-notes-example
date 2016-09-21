@@ -14,41 +14,41 @@ class NotesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWasShown, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: .keyboardWillBeHidden, name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWasShown, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillBeHidden, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Place code to load data here
         
     }
     
-    @IBAction func logout(sender: AnyObject) {
+    @IBAction func logout(_ sender: AnyObject) {
         // Code when someone presses the logout button
-        dismissViewControllerAnimated(false, completion: nil)
+        dismiss(animated: false, completion: nil)
         
     }
     
-    func keyboardWasShown(notification: NSNotification) {
-        if let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
+    func keyboardWasShown(_ notification: Notification) {
+        if let keyboardRect = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue {
             notesTextView.contentInset = UIEdgeInsetsMake(0, 0, keyboardRect.size.height, 0)
             notesTextView.scrollIndicatorInsets = notesTextView.contentInset
         }
     }
     
-    func keyboardWillBeHidden(notification: NSNotification) {
-        notesTextView.contentInset = UIEdgeInsetsZero
-        notesTextView.scrollIndicatorInsets = UIEdgeInsetsZero
+    func keyboardWillBeHidden(_ notification: Notification) {
+        notesTextView.contentInset = UIEdgeInsets.zero
+        notesTextView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
 
 extension NotesViewController: UITextViewDelegate {
     
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         // Add a "Save" button to the navigation bar when we start editing the 
         // text field.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: .stopEditing)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: .stopEditing)
     }
     
     func stopEditing() {
@@ -57,7 +57,7 @@ extension NotesViewController: UITextViewDelegate {
         notesTextView.resignFirstResponder()
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         // Code when someone exits out of the text field
         
     }

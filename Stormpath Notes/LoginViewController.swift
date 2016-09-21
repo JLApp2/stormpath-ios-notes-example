@@ -13,37 +13,37 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
         // Code when someone presses the login button
         openNotes()
         
     }
     
-    @IBAction func loginWithFacebook(sender: AnyObject) {
+    @IBAction func loginWithFacebook(_ sender: AnyObject) {
         // Code when someone presses the login with Facebook button
         
     }
     
-    @IBAction func loginWithGoogle(sender: AnyObject) {
+    @IBAction func loginWithGoogle(_ sender: AnyObject) {
         // Code when someone presses the login with Google button
         
     }
 
-    @IBAction func resetPassword(sender: AnyObject) {
+    @IBAction func resetPassword(_ sender: AnyObject) {
         // Code when someone presses the reset password button
         
     }
     
     func openNotes() {
-        performSegueWithIdentifier("login", sender: self)
+        performSegue(withIdentifier: "login", sender: self)
     }
 }
 
 // Helper extension to display alerts easily.
 extension UIViewController {
     func showAlert(withTitle title: String, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

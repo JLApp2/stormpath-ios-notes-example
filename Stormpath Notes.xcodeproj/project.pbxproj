@@ -102,6 +102,8 @@
 				TargetAttributes = {
 					DF46C2C01C938CDB0001898D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2KJYZ9RG2S;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -258,10 +260,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2KJYZ9RG2S;
 				INFOPLIST_FILE = "Stormpath Notes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stormpath.Stormpath-Notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -270,10 +274,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2KJYZ9RG2S;
 				INFOPLIST_FILE = "Stormpath Notes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stormpath.Stormpath-Notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
