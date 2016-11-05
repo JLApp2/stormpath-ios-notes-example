@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func openNotes(_ success: Bool, error: NSError?) {
+    func openNotes(success: Bool, error: NSError?) {
         if let error = error {
             showAlert(withTitle: "Error", message: error.localizedDescription)
         }
